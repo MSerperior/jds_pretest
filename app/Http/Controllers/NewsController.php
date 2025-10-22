@@ -40,7 +40,15 @@ class NewsController extends Controller
      */
     public function store(StoreNewsRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        if($request->hasFile('news_image'))
+        {
+            $validated['news_image'] = $request->file('news_image')->store('uploads', 'public');
+        }
+
+        return $this->newsService->create($validated);
+
     }
 
     /**
@@ -66,7 +74,14 @@ class NewsController extends Controller
      */
     public function update(UpdateNewsRequest $request, News $news)
     {
-        //
+        $validated = $request->validated();
+
+        if($request->hasFile('news_image'))
+        {
+            $validated['news_image'] = $request->file('news_image')->store('uploads', 'public');
+        }
+
+        return $this->newsService->update($news->uuid, $validated);
     }
 
     /**
@@ -74,6 +89,6 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+        return $this->newsService->delete($news->uuid);
     }
 }
