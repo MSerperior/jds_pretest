@@ -15,4 +15,7 @@ interface NewsRepository extends Repository{
      * @return Model|null
      */
     public function findWithComments($id);
+
+
+    public function simplePaginate($limit);
 }

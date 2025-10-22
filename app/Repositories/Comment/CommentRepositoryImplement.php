@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Repositories\News;
+namespace App\Repositories\Comment;
 
 use LaravelEasyRepository\Implementations\Eloquent;
-use App\Models\News;
+use App\Models\Comment;
 
-class NewsRepositoryImplement extends Eloquent implements NewsRepository{
+class CommentRepositoryImplement extends Eloquent implements CommentRepository{
 
     /**
     * Model class to be used in this repository for the common methods inside Eloquent
     * Don't remove or change $this->model variable name
     * @property Model|mixed $model;
     */
-    protected News $model;
+    protected Comment $model;
 
-    public function __construct(News $model)
+    public function __construct(Comment $model)
     {
         $this->model = $model;
     }
@@ -31,19 +31,9 @@ class NewsRepositoryImplement extends Eloquent implements NewsRepository{
         return $this->model->findOrFail($id);   
     }
 
-    public function findWithComments($id)
-    {
-        return $this->model->with('comments')->find($id);
-    }
-
     public function all()
     {
         return $this->model->all();
-    }
-
-    public function simplePaginate($limit)
-    {
-        return $this->model->simplePaginate($limit);
     }
 
     public function create($data)
