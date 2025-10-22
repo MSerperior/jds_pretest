@@ -15,46 +15,46 @@ class RoleAndPermissionSeeder extends Seeder
     public function run(): void
     {
         // create permissions
-        Permission::create(['name' => 'view-all news']);
-        Permission::create(['name' => 'view news']);
-        Permission::create(['name' => 'store news']);
-        Permission::create(['name' => 'edit news']);
-        Permission::create(['name' => 'delete news']);
+        Permission::create(['name' => 'news:index']);
+        Permission::create(['name' => 'news:store']);
+        Permission::create(['name' => 'news:show']);
+        Permission::create(['name' => 'news:update']);
+        Permission::create(['name' => 'news:delete']);
 
         // create permissions
-        Permission::create(['name' => 'view-all comments']);
-        Permission::create(['name' => 'view comment']);
-        Permission::create(['name' => 'store comment']);
-        Permission::create(['name' => 'edit comment']);
-        Permission::create(['name' => 'delete comment']);
+        Permission::create(['name' => 'comments:index']);
+        Permission::create(['name' => 'comments:store']);
+        Permission::create(['name' => 'comments:show']);
+        Permission::create(['name' => 'comments:update']);
+        Permission::create(['name' => 'comments:delete']);
         
         $admin = Role::create(['name' => 'admin'])
             ->givePermissionTo(
                 [
-                    'view-all news',
-                    'view news',
-                    'store news',
-                    'edit news',
-                    'delete news',
+                    'news:index',
+                    'news:store',
+                    'news:show',
+                    'news:update',
+                    'news:delete',
                     
-                    'view-all comments',
-                    'view comment',
-                    'store comment',
-                    'edit comment',
-                    'delete comment',
+                    'comments:index',
+                    'comments:store',
+                    'comments:show',
+                    'comments:update',
+                    'comments:delete',
                 ]
             );
         $nonAdmin = Role::create(['name' => 'non-admin'])
             ->givePermissionTo(
                 [
-                    'view-all news',
-                    'view news',
+                    'news:index',
+                    'news:show',
                     
-                    'view-all comments',
-                    'view comment',
-                    'store comment',
-                    'edit comment',
-                    'delete comment',
+                    'comments:index',
+                    'comments:store',
+                    'comments:show',
+                    'comments:update',
+                    'comments:delete',
                 ]
             );
     }
