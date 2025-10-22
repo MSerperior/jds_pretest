@@ -5,15 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
+use App\Http\Resources\NewsResource;
+use App\Services\News\NewsService;
 
 class NewsController extends Controller
 {
+    protected $newsService;
+
+    public function __construct(NewsService $newsService)
+    {
+        $this->newsService = $newsService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return News::paginate(10);
+        $news = $this->newsService->simplePaginate(2);
+
+        return NewsResource::collection($news);
     }
 
     /**
@@ -37,7 +48,9 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        //
+        $news = $this->newsService->findWithComments($news->uuid);
+
+        return new NewsResource($news);
     }
 
     /**
