@@ -15,7 +15,7 @@ class NewsResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
+            'id' => $this->uuid,
             'news_title' => $this->news_title,
             'news_content' => $this->news_content,
             'news_image' => $this->news_image,
