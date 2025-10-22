@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->uuid();
-            $table->foreignUuid('news_id')->constrained('news');
+            $table->uuid()->primary()->unique();
+            $table->foreignUuid('news_uuid')->constrained('news', 'uuid');
             $table->text('comment_text');
             $table->timestamps();
         });
