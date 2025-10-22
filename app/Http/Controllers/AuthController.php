@@ -41,7 +41,7 @@ class AuthController extends Controller
             return response()->json(['message' => 'Invalid Credentials'], 401);
         }
 
-        $token = $user->createToken('auth_token', ['*'])->accessToken;
+        $token = $user->createToken('auth_token', $user->getPermissionsViaRoles()->pluck('name')->toArray())->accessToken;
 
         return response()->json(['message' => 'Logged in successfully', 'token' => $token], 200);
     }

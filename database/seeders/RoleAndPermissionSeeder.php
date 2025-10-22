@@ -19,14 +19,14 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'news:store']);
         Permission::create(['name' => 'news:show']);
         Permission::create(['name' => 'news:update']);
-        Permission::create(['name' => 'news:delete']);
+        Permission::create(['name' => 'news:destroy']);
 
         // create permissions
         Permission::create(['name' => 'comments:index']);
         Permission::create(['name' => 'comments:store']);
         Permission::create(['name' => 'comments:show']);
         Permission::create(['name' => 'comments:update']);
-        Permission::create(['name' => 'comments:delete']);
+        Permission::create(['name' => 'comments:destroy']);
         
         $admin = Role::create(['name' => 'admin'])
             ->givePermissionTo(
@@ -35,13 +35,13 @@ class RoleAndPermissionSeeder extends Seeder
                     'news:store',
                     'news:show',
                     'news:update',
-                    'news:delete',
+                    'news:destroy',
                     
                     'comments:index',
                     'comments:store',
                     'comments:show',
                     'comments:update',
-                    'comments:delete',
+                    'comments:destroy',
                 ]
             );
         $nonAdmin = Role::create(['name' => 'non-admin'])
@@ -54,7 +54,7 @@ class RoleAndPermissionSeeder extends Seeder
                     'comments:store',
                     'comments:show',
                     'comments:update',
-                    'comments:delete',
+                    'comments:destroy',
                 ]
             );
     }
