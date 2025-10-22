@@ -36,10 +36,15 @@ class CommentRepositoryImplement extends Eloquent implements CommentRepository{
         return $this->model->all();
     }
 
+    public function simplePaginate($limit)
+    {
+      return $this->model->simplePaginate($limit);
+    }
+
     public function create($data)
     {
         return $this->model->create($data);
-    }
+    }    
 
     public function update($id, array $data)
     {

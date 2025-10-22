@@ -18,4 +18,6 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('news/{news}', [NewsController::class, 'show'])->middleware(CheckToken::using('news:show'))->name('news.show');
     Route::put('news/{news}', [NewsController::class, 'update'])->middleware(CheckToken::using('news:update'))->name('news.update');
     Route::delete('news/{news}', [NewsController::class, 'destroy'])->middleware(CheckToken::using('news:destroy'))->name('news.destroy');
+
+    Route::resource('news.comments', CommentController::class)->shallow();
 });

@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
+use App\Models\News;
+use App\Services\Comment\CommentService;
 
 class CommentController extends Controller
 {
+    protected $commentService;
+
+    public function __construct(CommentService $commentService)
+    {
+        $this->commentService = $commentService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -27,9 +35,13 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCommentRequest $request)
+    public function store(StoreCommentRequest $request, News $news)
     {
-        //
+        $validated = $request->validated();
+
+        $validated['news_uuid'] = $news->uuid;
+
+        $this->commentService->create($validated);
     }
 
     /**
@@ -53,7 +65,9 @@ class CommentController extends Controller
      */
     public function update(UpdateCommentRequest $request, Comment $comment)
     {
-        //
+        $validated = $request->validated();
+
+        $this->commentService->update($comment->uuid, $validated);
     }
 
     /**

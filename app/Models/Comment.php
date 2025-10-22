@@ -14,7 +14,7 @@ class Comment extends Model
     protected $primaryKey = 'uuid';
 
     protected $fillable = [
-        'news_id',
+        'news_uuid',
         'comment_text'
     ];
 }

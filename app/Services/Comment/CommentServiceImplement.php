@@ -31,4 +31,78 @@ class CommentServiceImplement extends ServiceApi implements CommentService{
     }
 
     // Define your custom methods :)
+
+    /**
+     * Fin an item by id
+     * @param mixed $id
+     * @return Model|null
+     */
+    public function find($id)
+    {
+      return $this->mainRepository->find($id);
+    }
+
+    /**
+     * find or fail
+     * @param mixed $id
+     * @return mixed
+     */
+    public function findOrFail($id)
+    {
+      return $this->mainRepository->findOrFail($id);
+    }
+
+    /**
+     * Return all items
+     * @return Collection|null
+     */
+    public function all()
+    {
+      return $this->mainRepository->all();
+    }
+
+    public function simplePaginate($limit)
+    {
+      return $this->mainRepository->simplePaginate($limit);
+    }
+
+    /**
+     * Create an item
+     * @param array|mixed $data
+     * @return Model|null
+     */
+    public function create($data)
+    {
+      return $this->mainRepository->create($data);
+    }
+
+    /**
+     * Update a model
+     * @param int|mixed $id
+     * @param array|mixed $data
+     * @return bool|mixed
+     */
+    public function update($id, array $data)
+    {
+      return $this->mainRepository->update($id, $data);
+    }
+
+    /**
+     * Delete a model
+     * @param int|Model $id
+     */
+    public function delete($id)
+    {
+      return $this->mainRepository->delete($id);
+    }
+
+    /**
+     * multiple delete
+     * @param array $id
+     * @return mixed
+     */
+    public function destroy(array $id)
+    {
+      return $this->mainRepository->destroy($id);
+    }
 }
