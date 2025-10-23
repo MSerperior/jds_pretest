@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\News;
+use Illuminate\Support\Facades\Log;
 
 class NewsObserver
 {
@@ -11,7 +12,7 @@ class NewsObserver
      */
     public function created(News $news): void
     {
-        //
+        Log::info('News created');
     }
 
     /**
@@ -19,7 +20,7 @@ class NewsObserver
      */
     public function updated(News $news): void
     {
-        //
+        Log::info('News updated');
     }
 
     /**
@@ -27,7 +28,7 @@ class NewsObserver
      */
     public function deleted(News $news): void
     {
-        //
+        Log::info('News deleted');
     }
 
     /**
@@ -35,7 +36,7 @@ class NewsObserver
      */
     public function restored(News $news): void
     {
-        //
+        Log::info('News restored');
     }
 
     /**
@@ -43,6 +44,6 @@ class NewsObserver
      */
     public function forceDeleted(News $news): void
     {
-        //
+        Log::info('News forceDeleted');
     }
 }
