@@ -53,12 +53,16 @@ class NewsRepositoryImplement extends Eloquent implements NewsRepository{
 
     public function update($id, array $data)
     {
-        return $this->model->where('uuid', $id)->update($data);
+        $m = $this->model->find($id);
+
+        return $m->update($data);
     }
 
     public function delete($id)
     {
-        return $this->model->where('uuid', $id)->delete();
+        $m = $this->model->find($id);
+
+        return $m->delete();
     }
 
     public function destroy(array $id)

@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
+use App\Models\Log;
 use App\Models\News;
-use Illuminate\Support\Facades\Log;
 
 class NewsObserver
 {
@@ -12,7 +12,11 @@ class NewsObserver
      */
     public function created(News $news): void
     {
-        Log::info('News created');
+        Log::create([
+            'level' => 'INFO',
+            'user_uuid' => request()->user()->uuid,
+            'detail' => 'Created News with ID '. $news->uuid,
+        ]);
     }
 
     /**
@@ -20,7 +24,11 @@ class NewsObserver
      */
     public function updated(News $news): void
     {
-        Log::info('News updated');
+        Log::create([
+            'level' => 'INFO',
+            'user_uuid' => request()->user()->uuid,
+            'detail' => 'Updated News with ID '. $news->uuid,
+        ]);
     }
 
     /**
@@ -28,7 +36,11 @@ class NewsObserver
      */
     public function deleted(News $news): void
     {
-        Log::info('News deleted');
+        Log::create([
+            'level' => 'INFO',
+            'user_uuid' => request()->user()->uuid,
+            'detail' => 'Deleted News with ID '. $news->uuid,
+        ]);
     }
 
     /**
@@ -36,7 +48,11 @@ class NewsObserver
      */
     public function restored(News $news): void
     {
-        Log::info('News restored');
+        Log::create([
+            'level' => 'INFO',
+            'user_uuid' => request()->user()->uuid,
+            'detail' => 'Restored News with ID '. $news->uuid,
+        ]);
     }
 
     /**
@@ -44,6 +60,10 @@ class NewsObserver
      */
     public function forceDeleted(News $news): void
     {
-        Log::info('News forceDeleted');
+        Log::create([
+            'level' => 'INFO',
+            'user_uuid' => request()->user()->uuid,
+            'detail' => 'Force Deleted News with ID '. $news->uuid,
+        ]);
     }
 }
