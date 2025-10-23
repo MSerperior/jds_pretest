@@ -56,7 +56,7 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        $news = $this->newsService->findWithComments($news->uuid);
+        $news = $this->newsService->findWithCommentsAndUserComment($news->uuid);
 
         return new NewsResource($news);
     }

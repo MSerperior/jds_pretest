@@ -40,6 +40,7 @@ class CommentController extends Controller
         $validated = $request->validated();
 
         $validated['news_uuid'] = $news->uuid;
+        $validated['user_uuid'] = request()->user()->uuid;
 
         $this->commentService->create($validated);
     }

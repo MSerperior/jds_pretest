@@ -62,6 +62,11 @@ class NewsServiceImplement extends ServiceApi implements NewsService{
       return $this->mainRepository->findWithComments($id);
     }
 
+    public function findWithCommentsAndUserComment($id)
+    {
+      return $this->mainRepository->findWithCommentsAndUserComment($id);
+    }
+
 
     /**
      * Return all items

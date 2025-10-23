@@ -36,6 +36,11 @@ class NewsRepositoryImplement extends Eloquent implements NewsRepository{
         return $this->model->with('comments')->find($id);
     }
 
+    public function findWithCommentsAndUserComment($id)
+    {
+        return $this->model->with('comments', 'comments.user')->find($id);
+    }
+
     public function all()
     {
         return $this->model->all();
