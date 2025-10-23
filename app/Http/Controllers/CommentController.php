@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
+use App\Jobs\ProcessComment;
 use App\Models\News;
 use App\Services\Comment\CommentService;
 
@@ -42,7 +43,9 @@ class CommentController extends Controller
         $validated['news_uuid'] = $news->uuid;
         $validated['user_uuid'] = request()->user()->uuid;
 
-        $this->commentService->create($validated);
+        ProcessComment::dispatch($validated)->delay(10); // Dispatch the job to the queue
+
+        // $this->commentService->create($validated);
     }
 
     /**
