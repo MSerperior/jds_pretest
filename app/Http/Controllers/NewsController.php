@@ -44,7 +44,7 @@ class NewsController extends Controller
 
         if($request->hasFile('news_image'))
         {
-            $validated['news_image'] = $request->file('news_image')->store('uploads', 'public');
+            $validated['news_image'] = $request->file('news_image')->store('/upload', 'local');
         }
 
         return $this->newsService->create($validated);
