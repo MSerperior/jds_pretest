@@ -8,9 +8,24 @@ interface NewsService extends BaseService{
 
     // Write something awesome :)
 
+    /**
+     * Find an item by id with Comments
+     * @param mixed $id
+     * @return Model|null
+     */
     public function findWithComments($id);
     
+    /**
+     * Find an item by id with Comments and comment user
+     * @param mixed $id
+     * @return Model|null
+     */
     public function findWithCommentsAndUserComment($id);
 
+    /**
+     * Return items with simple pagination
+     * @param int $limit
+     * @return mixed
+     */
     public function simplePaginate($limit);
 }

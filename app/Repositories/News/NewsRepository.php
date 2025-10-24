@@ -10,13 +10,23 @@ interface NewsRepository extends Repository{
     // Write something awesome :)
 
     /**
-     * Fin an item by id with comments
+     * Find an item by id with comments
      * @param mixed $id
      * @return Model|null
      */
     public function findWithComments($id);
 
+    /**
+     * Find an item by id with comments and comment owner
+     * @param mixed $id
+     * @return Model|null
+     */
     public function findWithCommentsAndUserComment($id);
 
+    /**
+     * Return items with simple pagination
+     * @param int $limit
+     * @return mixed
+     */
     public function simplePaginate($limit);
 }

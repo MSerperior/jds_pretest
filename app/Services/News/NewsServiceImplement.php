@@ -52,11 +52,6 @@ class NewsServiceImplement extends ServiceApi implements NewsService{
       return $this->mainRepository->findOrFail($id);
     }
 
-    /**
-     * Fin an item by id
-     * @param mixed $id
-     * @return Model|null
-     */
     public function findWithComments($id)
     {
       return $this->mainRepository->findWithComments($id);
@@ -67,11 +62,6 @@ class NewsServiceImplement extends ServiceApi implements NewsService{
       return $this->mainRepository->findWithCommentsAndUserComment($id);
     }
 
-
-    /**
-     * Return all items
-     * @return Collection|null
-     */
     public function all()
     {
       return $this->mainRepository->all();
@@ -82,41 +72,21 @@ class NewsServiceImplement extends ServiceApi implements NewsService{
       return $this->mainRepository->simplePaginate($limit);
     }
 
-    /**
-     * Create an item
-     * @param array|mixed $data
-     * @return Model|null
-     */
     public function create($data)
     {
       return $this->mainRepository->create($data);
     }
 
-    /**
-     * Update a model
-     * @param int|mixed $id
-     * @param array|mixed $data
-     * @return bool|mixed
-     */
     public function update($id, array $data)
     {
       return $this->mainRepository->update($id, $data);
     }
 
-    /**
-     * Delete a model
-     * @param int|Model $id
-     */
     public function delete($id)
     {
       return $this->mainRepository->delete($id);
     }
 
-    /**
-     * multiple delete
-     * @param array $id
-     * @return mixed
-     */
     public function destroy(array $id)
     {
       return $this->mainRepository->destroy($id);

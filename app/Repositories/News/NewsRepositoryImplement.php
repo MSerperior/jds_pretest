@@ -21,6 +21,7 @@ class NewsRepositoryImplement extends Eloquent implements NewsRepository{
 
     // Write something awesome :)
 
+    
     public function find($id)
     {
         return $this->model->find($id);
