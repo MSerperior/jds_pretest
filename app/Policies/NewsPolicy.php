@@ -21,7 +21,7 @@ class NewsPolicy
      */
     public function view(User $user, News $news): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class NewsPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class NewsPolicy
      */
     public function update(User $user, News $news): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class NewsPolicy
      */
     public function delete(User $user, News $news): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class NewsPolicy
      */
     public function restore(User $user, News $news): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class NewsPolicy
      */
     public function forceDelete(User $user, News $news): bool
     {
-        return false;
+        return true;
     }
 }
