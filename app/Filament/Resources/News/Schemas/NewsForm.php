@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\News\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -17,8 +18,9 @@ class NewsForm
                 Textarea::make('news_content')
                     ->required()
                     ->columnSpanFull(),
-                Textarea::make('news_image')
+                FileUpload::make('news_image')
                     ->required()
+                    ->image()
                     ->columnSpanFull(),
             ]);
     }
