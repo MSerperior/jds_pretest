@@ -25,11 +25,4 @@ class News extends Model
     {
         return $this->hasMany(Comment::class);
     }
-
-    protected function newsImage(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => $value ? (str_starts_with($value, 'http') ? $value : asset('storage/' . $value)) : null,
-        );
-    }
 }
