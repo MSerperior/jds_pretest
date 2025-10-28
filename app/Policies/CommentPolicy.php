@@ -13,7 +13,7 @@ class CommentPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('comments:index');
     }
 
     /**
@@ -21,7 +21,7 @@ class CommentPolicy
      */
     public function view(User $user, Comment $comment): bool
     {
-        return true;
+        return $user->hasPermissionTo('comments:show');
     }
 
     /**
@@ -29,7 +29,7 @@ class CommentPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('comments:store');
     }
 
     /**
@@ -37,7 +37,7 @@ class CommentPolicy
      */
     public function update(User $user, Comment $comment): bool
     {
-        return true;
+        return $user->hasPermissionTo('comments:update') && $user->uuid === $comment->user_uuid;
     }
 
     /**
@@ -45,7 +45,7 @@ class CommentPolicy
      */
     public function delete(User $user, Comment $comment): bool
     {
-        return true;
+        return $user->hasPermissionTo('comments:destroy') && $user->uuid === $comment->user_uuid;
     }
 
     /**

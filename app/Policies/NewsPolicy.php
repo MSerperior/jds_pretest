@@ -13,7 +13,7 @@ class NewsPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('news:index');
     }
 
     /**
@@ -21,7 +21,7 @@ class NewsPolicy
      */
     public function view(User $user, News $news): bool
     {
-        return true;
+        return $user->hasPermissionTo('news:show');
     }
 
     /**
@@ -29,7 +29,7 @@ class NewsPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->hasPermissionTo('news:store');
     }
 
     /**
@@ -37,7 +37,7 @@ class NewsPolicy
      */
     public function update(User $user, News $news): bool
     {
-        return true;
+        return $user->hasPermissionTo('news:update');
     }
 
     /**
@@ -45,7 +45,7 @@ class NewsPolicy
      */
     public function delete(User $user, News $news): bool
     {
-        return true;
+        return $user->hasPermissionTo('news:destroy');
     }
 
     /**
