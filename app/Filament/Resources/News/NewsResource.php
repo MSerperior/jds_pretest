@@ -6,6 +6,7 @@ use App\Filament\Resources\News\Pages\CreateNews;
 use App\Filament\Resources\News\Pages\EditNews;
 use App\Filament\Resources\News\Pages\ListNews;
 use App\Filament\Resources\News\Pages\ViewNews;
+use App\Filament\Resources\News\RelationManagers\CommentsRelationManager;
 use App\Filament\Resources\News\Schemas\NewsForm;
 use App\Filament\Resources\News\Schemas\NewsInfolist;
 use App\Filament\Resources\News\Tables\NewsTable;
@@ -42,7 +43,7 @@ class NewsResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            'comments' => CommentsRelationManager::class,
         ];
     }
 
