@@ -27,8 +27,38 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'comments:show']);
         Permission::create(['name' => 'comments:update']);
         Permission::create(['name' => 'comments:destroy']);
+
+        // create permissions
+        Permission::create(['name' => 'users:index']);
+        Permission::create(['name' => 'users:store']);
+        Permission::create(['name' => 'users:show']);
+        Permission::create(['name' => 'users:update']);
+        Permission::create(['name' => 'users:destroy']);
         
         $admin = Role::create(['name' => 'admin'])
+            ->givePermissionTo(
+                [
+                    'news:index',
+                    'news:store',
+                    'news:show',
+                    'news:update',
+                    'news:destroy',
+                    
+                    'comments:index',
+                    'comments:store',
+                    'comments:show',
+                    'comments:update',
+                    'comments:destroy',
+
+                    'users:index',
+                    'users:store',
+                    'users:show',
+                    'users:update',
+                    'users:destroy',
+                ]
+            );
+
+        $author = Role::create(['name' => 'author'])
             ->givePermissionTo(
                 [
                     'news:index',
