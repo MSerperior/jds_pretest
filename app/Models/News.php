@@ -31,4 +31,9 @@ class News extends Model
     {
         return $this->belongsToMany(Category::class, 'news_categories', 'news_uuid', 'category_uuid');
     }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class);
+    }
 }

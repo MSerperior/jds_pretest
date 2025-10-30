@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Comment;
+use App\Models\Image;
 use App\Models\News;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,6 +16,10 @@ class NewsSeeder extends Seeder
      */
     public function run(): void
     {
-         News::factory()->has(Comment::factory()->count(10)->for(User::factory()))->count(5)->create();
+         News::factory()
+         ->has(Comment::factory()->count(10)->for(User::factory()))
+         ->has(Image::factory()->count(3))
+         ->count(5)
+         ->create();
     }
 }

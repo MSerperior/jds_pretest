@@ -8,6 +8,7 @@ use App\Filament\Resources\News\Pages\ListNews;
 use App\Filament\Resources\News\Pages\ViewNews;
 use App\Filament\Resources\News\RelationManagers\CategoriesRelationManager;
 use App\Filament\Resources\News\RelationManagers\CommentsRelationManager;
+use App\Filament\Resources\News\RelationManagers\ImagesRelationManager;
 use App\Filament\Resources\News\Schemas\NewsForm;
 use App\Filament\Resources\News\Schemas\NewsInfolist;
 use App\Filament\Resources\News\Tables\NewsTable;
@@ -46,6 +47,7 @@ class NewsResource extends Resource
         return [
             'comments' => CommentsRelationManager::class,
             'categories' => CategoriesRelationManager::class,
+            'images' => ImagesRelationManager::class,
         ];
     }
 
