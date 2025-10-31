@@ -18,7 +18,7 @@ class ImageFactory extends Factory
     {
         return [
             'image_path' => fake()->imageUrl(),
-            'caption' => fake()->sentence(),
+            'image_caption' => fake()->sentence(),
         ];
     }
 }
