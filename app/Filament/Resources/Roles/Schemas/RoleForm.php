@@ -13,11 +13,16 @@ class RoleForm
     {
         return $schema
             ->components([
+                TextInput::make('name')
+                    ->required(),
+                TextInput::make('guard_name')
+                    ->required(),
                 CheckboxList::make('permissions')
                 ->relationship('permissions', 
                 titleAttribute: 'name', 
                 modifyQueryUsing: fn (Builder $query) => $query->orderBy('name'))
-                ->columns(3),
+                ->columns(3)
+                ->columnSpanFull(),
             ]);
     }
 }

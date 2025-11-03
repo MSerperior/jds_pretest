@@ -22,6 +22,13 @@ class News extends Model
         'news_image'
     ];
 
+    protected function casts(): array
+    { 
+        return [
+            'news_image' => 'array',
+        ];
+    }
+
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
