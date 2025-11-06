@@ -34,6 +34,24 @@ class AppServiceProvider extends ServiceProvider
             'comments:show' => 'Comments Show',
             'comments:update' => 'Comments Update',
             'comments:destroy' => 'Comments Destroy',
+
+            'users:index' => 'Users Index',
+            'users:store' => 'Users Store',
+            'users:show' => 'Users Show',
+            'users:update' => 'Users Update',
+            'users:destroy' => 'Users Destroy',
+
+            'categories:index' => 'Categories Index',
+            'categories:store' => 'Categories Store',
+            'categories:show' => 'Categories Show',
+            'categories:update' => 'Categories Update',
+            'categories:destroy' => 'Categories Destroy',
+
+            'roles:index' => 'Roles Index',
+            'roles:store' => 'Roles Store',
+            'roles:show' => 'Roles Show',
+            'roles:update' => 'Roles Update',
+            'roles:destroy' => 'Roles Destroy',
         ]);
 
         News::observe(NewsObserver::class);
