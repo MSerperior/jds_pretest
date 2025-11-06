@@ -42,6 +42,11 @@ class NewsRepositoryImplement extends Eloquent implements NewsRepository{
         return $this->model->with('comments', 'comments.user')->find($id);
     }
 
+    public function findWithRelations($id)
+    {
+        return $this->model->with('comments', 'comments.user', 'images')->find($id);
+    }
+
     public function all()
     {
         return $this->model->all();

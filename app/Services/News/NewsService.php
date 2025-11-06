@@ -23,6 +23,13 @@ interface NewsService extends BaseService{
     public function findWithCommentsAndUserComment($id);
 
     /**
+     * Find an item by id with relations
+     * @param mixed $id
+     * @return Model|null
+     */
+    public function findWithRelations($id);
+
+    /**
      * Return items with simple pagination
      * @param int $limit
      * @return mixed

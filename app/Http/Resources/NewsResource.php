@@ -25,6 +25,8 @@ class NewsResource extends JsonResource
 
             'comments' => CommentResource::collection($this->whenLoaded('comments')),
             'comments_count' => $this->whenCounted('comments'),
+
+            'images' => ImageResource::collection($this->whenLoaded('images')),
         ];
     }
 }
