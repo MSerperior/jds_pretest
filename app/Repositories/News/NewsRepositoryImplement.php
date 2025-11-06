@@ -49,7 +49,7 @@ class NewsRepositoryImplement extends Eloquent implements NewsRepository{
 
     public function simplePaginate($limit)
     {
-        return $this->model->simplePaginate($limit);
+        return $this->model->paginate($limit);
     }
 
     public function create($data)
