@@ -16,6 +16,7 @@ class Image extends Model
 
     protected $fillable = [
         'image_path',
+        'image_caption',
         'news_uuid'
     ];
 
