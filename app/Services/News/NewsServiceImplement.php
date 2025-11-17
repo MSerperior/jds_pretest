@@ -72,9 +72,13 @@ class NewsServiceImplement extends ServiceApi implements NewsService{
       return $this->mainRepository->all();
     }
 
-    public function simplePaginate($limit)
+    public function simplePaginate($request)
     {
-      return $this->mainRepository->simplePaginate($limit);
+      if(! $request->limit)
+      {
+        $request->limit = 6;
+      }
+      return $this->mainRepository->simplePaginate($request->limit);
     }
 
     public function create($data)

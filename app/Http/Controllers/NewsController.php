@@ -7,6 +7,7 @@ use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
 use App\Http\Resources\NewsResource;
 use App\Services\News\NewsService;
+use Symfony\Component\HttpFoundation\Request;
 
 class NewsController extends Controller
 {
@@ -20,9 +21,9 @@ class NewsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $news = $this->newsService->simplePaginate(2);
+        $news = $this->newsService->simplePaginate($request);
 
         return NewsResource::collection($news);
     }

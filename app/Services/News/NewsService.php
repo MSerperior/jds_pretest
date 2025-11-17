@@ -31,8 +31,8 @@ interface NewsService extends BaseService{
 
     /**
      * Return items with simple pagination
-     * @param int $limit
+     * @param Request $request
      * @return mixed
      */
-    public function simplePaginate($limit);
+    public function simplePaginate($request);
 }
