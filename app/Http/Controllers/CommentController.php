@@ -43,8 +43,9 @@ class CommentController extends Controller
         $validated['news_uuid'] = $news->uuid;
         $validated['user_uuid'] = request()->user()->uuid;
 
-        ProcessComment::dispatch($validated)->delay(10); // Dispatch the job to the queue
+        ProcessComment::dispatch($validated)->delay(1); // Dispatch the job to the queue
 
+        return response()->json(['message' => 'Comment is being processed'], 202);
         // $this->commentService->create($validated);
     }
 
@@ -71,7 +72,9 @@ class CommentController extends Controller
     {
         $validated = $request->validated();
 
-        $this->commentService->update($comment->uuid, $validated);
+        return $this->commentService->update($comment->uuid, $validated);
+
+        
     }
 
     /**
