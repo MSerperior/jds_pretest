@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid()->primary()->unique();
             $table->string('news_title');
             $table->text('news_content');
+            $table->string('news_slug', 511)->unique();
             // $table->text('news_image');
             $table->timestamps();
         });

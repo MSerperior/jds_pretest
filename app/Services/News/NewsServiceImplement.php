@@ -67,6 +67,11 @@ class NewsServiceImplement extends ServiceApi implements NewsService{
       return $this->mainRepository->findWithRelations($id);
     }
 
+    public function findBySlugWithRelations($slug)
+    {
+      return $this->mainRepository->findBySlugWithRelations($slug);
+    }
+
     public function all()
     {
       return $this->mainRepository->all();
@@ -83,11 +88,13 @@ class NewsServiceImplement extends ServiceApi implements NewsService{
 
     public function create($data)
     {
+      $data['news_slug'] = str()->slug($data->news_title . date('Y') . date('m') . date('d'));
       return $this->mainRepository->create($data);
     }
 
     public function update($id, array $data)
     {
+      $data['news_slug'] = str()->slug($data->news_title . date('Y') . date('m') . date('d'));
       return $this->mainRepository->update($id, $data);
     }
 

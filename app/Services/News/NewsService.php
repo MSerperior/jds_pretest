@@ -31,6 +31,13 @@ interface NewsService extends BaseService{
 
     /**
      * Return items with simple pagination
+     * @param str $slug
+     * @return mixed
+     */
+    public function findBySlugWithRelations($slug);
+
+    /**
+     * Return items with simple pagination
      * @param Request $request
      * @return mixed
      */

@@ -29,6 +29,13 @@ interface NewsRepository extends Repository{
      * @return Model|null
      */
     public function findWithRelations($id);
+    
+    /**
+     * Return items with simple pagination
+     * @param str $slug
+     * @return mixed
+     */
+    public function findBySlugWithRelations($slug);
 
     /**
      * Return items with simple pagination

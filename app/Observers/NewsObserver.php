@@ -12,11 +12,11 @@ class NewsObserver
      */
     public function created(News $news): void
     {
-        Log::create([
-            'level' => 'INFO',
-            'user_uuid' => request()->user()->uuid,
-            'detail' => 'Created News with ID '. $news->uuid,
-        ]);
+        // Log::create([
+        //     'level' => 'INFO',
+        //     'user_uuid' => request()->user()->uuid,
+        //     'detail' => 'Created News with ID '. $news->uuid,
+        // ]);
     }
 
     /**
