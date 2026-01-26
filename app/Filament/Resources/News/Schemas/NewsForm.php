@@ -5,7 +5,6 @@ namespace App\Filament\Resources\News\Schemas;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
 class NewsForm
@@ -17,10 +16,12 @@ class NewsForm
                 TextInput::make('news_title')
                     ->required(),
                 RichEditor::make('news_content')
-                    ->required()
-                    ->columnSpanFull(),
+                    ->label('News Content')
+                    ->extraAttributes(['style' => 'min-height: 500px; height: auto;'])
+                    ->fileAttachmentsDisk('public')
+                    ->columnSpanFull()
+                    ->required(),
                 FileUpload::make('images')
-                    ->required()
                     ->image()
                     ->columnSpanFull()
                     ->multiple()
